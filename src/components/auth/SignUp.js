@@ -10,6 +10,7 @@ class SignUp extends Component {
   };
 
   render() {
+    console.log('--->', this.props)
     return (
       <div>
         <h3>SignUp</h3>
