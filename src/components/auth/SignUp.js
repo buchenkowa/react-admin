@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {reduxForm, Field} from 'redux-form'
 import emailValidator from 'email-validator'
+import ErrorField from '../common/ErrorField'
 
 class SignUp extends Component {
   static propTypes = {
@@ -13,14 +14,10 @@ class SignUp extends Component {
       <div>
         <h3>SignUp</h3>
         <form onSubmit = {this.props.handleSubmit}>
+          <Field name = 'email' component = {ErrorField} type = 'text' label = 'email: '/>
+          <Field name = 'password' component = {ErrorField} type = 'text' label = 'password: '/>
           <div>
-            email: <Field name = 'email' component = 'input' type = 'text' />
-          </div>
-          <div>
-            password: <Field name = 'password' component = 'input' ype = 'text' />
-          </div>
-          <div>
-            <input type = 'submit' />
+            <input type = 'submit' disabled = {this.props.invalid} />
           </div>
         </form>
       </div>
